@@ -6,8 +6,8 @@ npm i
 npm run dev
 
 Перед початком роботи:
-   (git pull origin main) - отримати останні зміни
-   (git checkout -b feature/your-feature-name) - створити нову гілку
-   (npm install) - переконатися що всі залежності встановлені
+   (git pull origin main) - отримати останні зміни;
+   (git checkout -b feature/your-feature-name) - створити нову гілку;
+   (npm install) - переконатися що всі залежності встановлені;
 
 Гілку називаємо відповідно до завдання!
