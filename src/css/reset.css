@@ -1,3 +1,27 @@
+/* Box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Base HTML */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary, 'IBM Plex Sans'), sans-serif;
+  line-height: 1.5;
+  color: var(--color-fg, #1e1c1f);
+  background-color: var(--color-bg, #fff);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings & paragraphs */
 h1,
 h2,
 h3,
@@ -6,29 +30,91 @@ h5,
 h6,
 p {
   margin: 0;
+  font-weight: inherit;
 }
 
 p:last-child {
   margin-bottom: 0;
 }
 
-ul {
+/* Lists */
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* Links */
 a {
-  color: currentColor;
+  color: inherit;
   text-decoration: none;
 }
 
-button {
-  cursor: pointer;
+/* Focus for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-accent, #764191);
+  outline-offset: 2px;
 }
 
+/* Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+  padding: 0;
+}
+
+/* Form elements */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Fieldset & legend */
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+legend {
+  padding: 0;
+}
+
+/* Horizontal rule */
+hr {
+  margin: 0;
+  border: none;
+  height: 1px;
+  width: 100%;
+  background-color: var(--color-border, #ccc);
+}
+
+/* Images */
 img {
   display: block;
   max-width: 100%;
   height: auto;
+  object-fit: cover;
+}
+
+/* HTML5 structural elements reset */
+article,
+section,
+main,
+nav,
+aside,
+figure,
+figcaption {
+  display: block;
 }
