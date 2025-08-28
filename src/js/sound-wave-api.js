@@ -138,7 +138,7 @@ function noDataIzT() {
   });
 }
 
-function errorApiIzT(error) {
+export function errorApiIzT(error) {
   iziToast.show({
     title: 'Error',
     color: 'red',

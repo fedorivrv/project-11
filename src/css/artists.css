@@ -1,0 +1,104 @@
+.section-artists {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+@media (min-width: 1440px) {
+  .section-artists {
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
+}
+
+.head-artists {
+  margin-bottom: 32px;
+}
+
+@media (min-width: 1440px) {
+  .head-artists {
+    max-width: 523px;
+    margin-bottom: 80px;
+  }
+}
+
+.text-artists {
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.title-artists {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 1440px) {
+  .title-artists {
+    font-size: 60px;
+  }
+}
+
+.list-artists {
+  margin-bottom: 32px;
+}
+
+@media (min-width: 1440px) {
+  .list-artists {
+    margin-bottom: 64px;
+  }
+}
+
+.load-more {
+  border-radius: 12px;
+  padding: 10px 24px;
+  width: 288px;
+  height: 47px;
+  box-shadow:
+    0 1px 2px 0 var(--white-5),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(var(--black-rgb), 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 var(--white-5);
+  background-color: var(--affair-400);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--white);
+}
+
+@media (min-width: 768px) {
+  .load-more {
+    max-width: 340px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  .load-more {
+    max-width: 170px;
+  }
+}
+
+.load-more:hover {
+  background-color: rgba(var(--affair-400), 0.6);
+  color: rgba(var(--white), 0.6);
+}
+
+.list-artists {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.img-artist {
+  width: 288px;
+  height: 177px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 16px;
+}
