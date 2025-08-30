@@ -3,7 +3,7 @@ import {
   errorApiIzT,
   noDataIzT,
   successDataIzT,
-} from './js/izitoast-functions';
+} from './izitoast-functions.js';
 axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api/';
 let DATA_PASS;
 export let MAX_PAGE_ARTIST = 1;
