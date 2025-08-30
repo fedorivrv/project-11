@@ -1,4 +1,4 @@
-import { getArtist, getArtistAlbums } from './api.js';
+// import { getArtist, getArtistAlbums } from './api.js';
 
   const backdrop = document.getElementById('artist-modal-backdrop');
   const modal = document.getElementById('artist-modal');
@@ -39,12 +39,13 @@ import { getArtist, getArtistAlbums } from './api.js';
    // Закрити модальне вікно
   export function closeArtistModal() {
     backdrop.classList.add('hidden');
-    document.body.style.overflow = ''; // Повертаємо скрол сторінці
+    document.body.style.overflow = '';
     document.removeEventListener('keydown', escListener);
     backdrop.removeEventListener('click', outsideClickListener);
   }
 
   closeBtn.addEventListener('click', closeArtistModal);
+
  // Рендер артиста
   function renderArtist(artist, albums) {
     const yearsActive = artist.startYear && artist.endYear
