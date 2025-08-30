@@ -1,8 +1,8 @@
 import axios from 'axios';
-import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
+
 axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api/';
 let DATA_PASS;
+export let MAX_PAGE_ARTIST = 1;
 
 export async function getGenres() {
   try {
@@ -13,14 +13,14 @@ export async function getGenres() {
     if (genres && Array.isArray(genres) && genres.length > 0) {
       return genres;
     } else {
-      return noDataIzT(DATA_PASS);
+      return noDataIzT('genres');
     }
   } catch (error) {
     errorApiIzT(error);
   }
 }
 
-export async function getArtists({ name, page = 1, sortName, genre } = {}) {
+export async function getArtists({ name, page, sortName, genre } = {}) {
   DATA_PASS = 'artists';
   const params = {
     limit: 8,
@@ -33,11 +33,11 @@ export async function getArtists({ name, page = 1, sortName, genre } = {}) {
     const res = await axios.get(DATA_PASS, { params });
 
     const artists = res.data.artists;
+    MAX_PAGE_ARTIST = Math.ceil(res.data.totalArtists / params.limit);
     if (artists && Array.isArray(artists) && artists.length > 0) {
-      console.log(artists);
       return artists;
     } else {
-      return noDataIzT(DATA_PASS);
+      return noDataIzT('artists');
     }
   } catch (error) {
     errorApiIzT(error);
@@ -84,8 +84,8 @@ export async function getRandomPageFeedbacks() {
   try {
     DATA_PASS = 'feedbacks';
     const fullFeedbacks = await axios.get(DATA_PASS, {});
-    const MAX_PAGE = Math.ceil(fullFeedbacks.data.data.length / 10);
-    const page = getRandomInt(MAX_PAGE);
+    const MAX_PAGE_FEEDBACKS = Math.ceil(fullFeedbacks.data.data.length / 10);
+    const page = getRandomInt(MAX_PAGE_FEEDBACKS);
     const params = {
       limit: 10,
       page: page,
@@ -96,7 +96,7 @@ export async function getRandomPageFeedbacks() {
     if (feedbacks && Array.isArray(feedbacks) && feedbacks.length > 0) {
       return feedbacks;
     } else {
-      return noDataIzT(DATA_PASS);
+      return noDataIzT('feedbacks');
     }
   } catch (error) {
     errorApiIzT(error);
@@ -115,38 +115,11 @@ export async function postFeedback(nameArtist, ratingArtist, descArtist) {
   await axios
     .post(DATA_PASS, newFeedback)
     .then(response => {
-      iziToast.success({
-        message: response.data.message,
-        position: 'topRight',
-        messageColor: 'white',
-        titleColor: 'white',
-      });
+      successDataIzT(response);
     })
     .catch(error => {
       errorApiIzT(error);
     });
-}
-
-function noDataIzT() {
-  iziToast.show({
-    title: '❌',
-    message: `Sorry, there are no ${DATA_PASS}.`,
-    color: 'red',
-    position: 'topRight',
-    messageColor: 'white',
-    titleColor: 'white',
-  });
-}
-
-function errorApiIzT(error) {
-  iziToast.show({
-    title: 'Error',
-    color: 'red',
-    position: 'topRight',
-    messageColor: 'white',
-    titleColor: 'white',
-    message: error.message,
-  });
 }
 
 function getRandomInt(n) {
