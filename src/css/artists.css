@@ -79,8 +79,6 @@
 @media (min-width: 768px) {
   .load-more {
     max-width: 340px;
-    display: block;
-    margin: 0 auto;
   }
 }
 
@@ -101,10 +99,22 @@
   gap: 64px;
 }
 
+@media (min-width: 768px) {
+  .list-artists {
+    gap: 32px;
+  }
+}
+
 .item-artists {
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .item-artists:last-child {
+    margin-bottom: 32px;
+  }
 }
 
 .img-artist {
@@ -113,6 +123,13 @@
   object-fit: cover;
   object-position: top;
   border-radius: 16px;
+}
+
+@media (min-width: 768px) {
+  .img-artist {
+    width: 704px;
+    height: 432px;
+  }
 }
 
 .genres-artist {
