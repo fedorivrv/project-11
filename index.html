@@ -19,7 +19,9 @@
     rel="stylesheet">
   <!-- Підключення CSS-файлів -->
   <script type="module" crossorigin src="/DevPulse/index.js"></script>
-  <link rel="stylesheet" crossorigin href="/DevPulse/assets/index-CZzWKcq_.css">
+  <link rel="modulepreload" crossorigin href="/DevPulse/assets/vendor-CZz261bG.js">
+  <link rel="stylesheet" crossorigin href="/DevPulse/assets/vendor-DnveWo0P.css">
+  <link rel="stylesheet" crossorigin href="/DevPulse/assets/index-DV4qaesB.css">
 </head>
 
 <body>
@@ -34,6 +36,13 @@
 
   </main>
 
+  <div id="artist-modal-backdrop" class="backdrop hidden">
+  <div id="artist-modal" class="modal">
+    <button id="artist-close-btn" class="close-btn">✖</button>
+    <div id="artist-loader" class="loader">Loading...</div>
+    <div id="artist-content" class="hidden"></div>
+  </div>
+</div>
   <footer class="footer">
   <div class="container">
 
