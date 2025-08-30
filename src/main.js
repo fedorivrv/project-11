@@ -3,7 +3,8 @@ import {
   createArtists,
   updateArtists,
 } from './js/render-functions';
-import { errorApiIzT, getArtists } from './js/sound-wave-api';
+import { getArtists } from './js/sound-wave-api';
+import { errorApiIzT } from './js/izitoast-functions';
 const btnLdMrEl = document.querySelector('.load-more');
 let page = 1;
 

@@ -48,21 +48,9 @@ export function updateArtists(artists) {
 }
 
 export function checkVisibleLoadBtn(page) {
-  if (page < MAX_PAGE_ARTIST) {
-    showLoadMoreButton();
-  } else if (MAX_PAGE_ARTIST) {
+  if (page === MAX_PAGE_ARTIST) {
     hideLoadMoreButton();
-    // iziToast.info({
-    //   message: `We're sorry, but you've reached the end of artists.`,
-    //   color: 'blue',
-    //   position: 'topRight',
-    //   messageColor: 'black',
-    // });
   }
-}
-
-function showLoadMoreButton() {
-  btnLdMrEl.classList.remove('is-display-none');
 }
 
 function hideLoadMoreButton() {
