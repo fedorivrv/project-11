@@ -1,3 +1,6 @@
+import { MAX_PAGE_ARTIST } from './sound-wave-api';
+const btnLdMrEl = document.querySelector('.load-more');
+
 function templateImage(artist) {
   const { _id, genres, strArtist, strBiographyEN, strArtistThumb } = artist;
   let genresMarkup;
@@ -9,7 +12,7 @@ function templateImage(artist) {
       .join('\n');
   }
 
-  return `<li class="item-artists" data-id-${_id}>
+  return `<li class="item-artists">
         <img class="img-artist" src="${strArtistThumb}" alt="${strArtist}" />
         <div class="info-artist">
           <ul class="genres-artist">
@@ -18,7 +21,7 @@ function templateImage(artist) {
           <h3 class="name-artist">${strArtist}</h3>
           <p class="desc-artist">${strBiographyEN}</p>
         </div>
-        <button class="learn-more-artist">
+        <button class="learn-more-artist" data-id-${_id}>
           Learn More
           <svg class="icon-learn-more" width="24" height="24">
             <use href=""></use>
@@ -35,6 +38,33 @@ function templatesArtist(artists) {
 export function createArtists(artists) {
   const ulElem = document.querySelector('.list-artists');
   const markup = templatesArtist(artists);
-  //   console.log(markup);
   ulElem.insertAdjacentHTML('afterbegin', markup);
+}
+
+export function updateArtists(artists) {
+  const ulElem = document.querySelector('.list-artists');
+  const markup = templatesArtist(artists);
+  ulElem.insertAdjacentHTML('beforeEnd', markup);
+}
+
+export function checkVisibleLoadBtn(page) {
+  if (page < MAX_PAGE_ARTIST) {
+    showLoadMoreButton();
+  } else if (MAX_PAGE_ARTIST) {
+    hideLoadMoreButton();
+    // iziToast.info({
+    //   message: `We're sorry, but you've reached the end of artists.`,
+    //   color: 'blue',
+    //   position: 'topRight',
+    //   messageColor: 'black',
+    // });
+  }
+}
+
+function showLoadMoreButton() {
+  btnLdMrEl.classList.remove('is-display-none');
+}
+
+function hideLoadMoreButton() {
+  btnLdMrEl.classList.add('is-display-none');
 }
