@@ -1,5 +1,9 @@
 import axios from 'axios';
-
+import {
+  errorApiIzT,
+  noDataIzT,
+  successDataIzT,
+} from './js/izitoast-functions';
 axios.defaults.baseURL = 'https://sound-wave.b.goit.study/api/';
 let DATA_PASS;
 export let MAX_PAGE_ARTIST = 1;
